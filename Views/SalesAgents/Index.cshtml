@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product_Sales_Commision_MVC.Models.SalesAgent>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Sales Agents</h1>
+
+<p>
+    <a class="btn btn-outline-dark" asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AgentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactNumber)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgentName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContactNumber)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
